@@ -1,6 +1,6 @@
 # StarBounce
 
-##Background
+## Background
 Inspired by [Stardew Valley](https://stardewvalley.net/) and [Hasee Bounce](https://www.youtube.com/watch?v=7I1yb_0xWYU),
 StarBounce will be a a game that features a villager whose mission is to obtain as many berries as possible to store away
 for the winter. StarBounce will be a one player game with two Stardew Valley characters standing opposite each other at
@@ -14,30 +14,30 @@ the platform in under a minute. The rules are as such:
 1. If you hit anything that is not a berry - trash, you lose points.
 2. The game ends when you run out of time.
 
-##Functionality & MVP
+## Functionality & MVP
 
 With StarBounce users will be able to:
-- Toggle sound on/off
-- Start and end the game
-- Keep track of score
+* Toggle sound on/off
+* Start and end the game
+* Keep track of score
 
 In addition, this project will include:
-- An About modal describing the background and rules of the game
-- A production README
+* An About modal describing the background and rules of the game
+* A production README
 
-##Wireframes
+## Wireframes
 The app will consist of a single screen with the game, nav links, and the about modal. The game screen will be the central point
 of the app, and will be centered in the middle. Towards the right will be the links to the developer.
 
-#Architecture and Technologies
+## Architecture and Technologies
 
 This project will be implemented with the following technologies:
 
-- JavaScript for game logic,
-- Canvas with HTML5,
+* JavaScript for game logic,
+* Canvas with HTML5,
 
 #Implementation Timeline
 
-Day 1:
-Day 2:
-Day 3:
+Day 1: Get the game screen, elements, and characters rendered on canvas 
+Day 2: Game logic of 'bouncing'
+Day 3: Tracking score and polishing up frontend
