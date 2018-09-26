@@ -8,8 +8,6 @@ let background = new Image();
 let leftB = new Image();
 let rightB = new Image();
 let fruit = new Image();
-var x = canvas.width / 40;
-var y = canvas.height - 200;
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -50,30 +48,30 @@ let fruitchoices = ['images/cactus.png', 'images/grape.png', 'images/melon.png',
 
 
 
-function fruits(){
-  let rand = Math.floor(Math.random() * Math.floor(fruitchoices.length));
-  for (var i = 0; i < 3; i++) {
-    let choice = fruitchoices[rand];
-    flyingfruit(choice);
-  }
-}
-
-// function flyingfruit(choice) {
-//   fruit.src = choice;
+// function fruits(){
+//   let rand = Math.floor(Math.random() * Math.floor(fruitchoices.length));
+//   for (var i = 0; i < 3; i++) {
+//     let choice = fruitchoices[rand];
+//     flyingfruit(choice);
+//   }
 // }
 
-function Fruit(choice,x,y){
-  this.x = x;
-  this.y = y;
+function Fruit(choice,dx,dy,direction){
+  this.dx = dx;
+  this.dy = dy;
 
   this.draw = function(){
-      fruit.src = choice;
-      ctx.beginPath();
-      ctx.drawImage(fruit, 0, 0, 1936, 3000, x, y, 1500, 2500);
+    fruit.src = choice;
+    ctx.beginPath();
+    ctx.drawImage(fruit, 0, 0, 1936, 3000, dx, dy, 1500, 2500);
   };
 
   this.update = function(){
-    x += 5;
+    if (direction === 'left'){
+      dx += 5;
+    } else {
+      dx -= 5;
+    }
     this.draw();
   };
   this.update();
@@ -82,23 +80,48 @@ function Fruit(choice,x,y){
 
 let fruitsArray = [];
 
-for (var i = 0; i < 5; i++) {
-  let rand = Math.floor(Math.random() * Math.floor(fruitchoices.length));
-  // let x =
-  // let y =
-  fruitsArray.push(new Fruit(fruitchoices[rand],x,y));
+function fruitsGoLeft(){
+  for (var i = 0; i < 1; i++) {
+    let rand = Math.floor(Math.random() * Math.floor(fruitchoices.length));
+    let dx = (Math.floor(Math.random() * 20) + 2);
+    let dy = canvas.height - (Math.floor(Math.random() * 400) + 40);
+    fruitsArray.push(new Fruit(fruitchoices[rand],dx,dy, "left"));
+    if (fruitsArray.length > 3) {
+      fruitsArray.shift();
+    }
+    // console.log(fruitsArray);
+  }
 }
+let fruitsArrayRight = [];
 
+function fruitsGoRight(){
+  for (var i = 0; i < 1; i++) {
+    let rand = Math.floor(Math.random() * Math.floor(fruitchoices.length));
+    let dx = canvas.width;
+    let dy = canvas.height - (Math.floor(Math.random() * 400) + 40);
+    fruitsArrayRight.push(new Fruit(fruitchoices[rand],dx,dy, "right"));
+    if (fruitsArrayRight.length > 3) {
+      fruitsArrayRight.shift();
+    }
+    console.log(fruitsArrayRight);
+  }
+}
 
 function animate(){
   requestAnimationFrame(animate);
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-
   foreground();
 
-  fruits();
+  for (let i = 0; i < fruitsArray.length; i++) {
+    fruitsArray[i].update();
+  }
+
+  // for (let i = 0; i < fruitsArrayRight.length; i++) {
+  //   fruitsArrayRight[i].update();
+  // }
+
 }
 
 animate();
-
-// setInterval(draw, 10);
+setInterval(fruitsGoLeft, 1500);
+setInterval(fruitsGoRight, 1500);
