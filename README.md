@@ -38,6 +38,6 @@ This project will be implemented with the following technologies:
 
 ## Implementation Timeline
 
-Day 1: Get the game screen, elements, and characters rendered on canvas
-Day 2: Game logic of 'bouncing'
-Day 3: Tracking score and polishing up frontend
+* Day 1: Get the game screen, elements, and characters rendered on canvas
+* Day 2: Game logic of 'bouncing'
+* Day 3: Tracking score and polishing up frontend
