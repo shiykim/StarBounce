@@ -1,0 +1,10 @@
+body {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#canvas {
+  border: 3px solid black;
+  border-radius: 3px;
+}
