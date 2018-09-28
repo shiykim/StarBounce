@@ -13,7 +13,7 @@ let player1X = 100;
 let player1Y = 70;
 // let player1Width = 120;
 let player2X = 480;
-let player2Y = 480;
+let player2Y = 500;
 // let player2Width = 120;
 
 let score = 0;
@@ -54,11 +54,9 @@ function foreground() {
   if (player1Y > 500){
     ctx.save();
     ctx.beginPath();
-    // ctx.rotate(10*Math.PI/180);
     ctx.rotate(-8*Math.PI/180);
     ctx.rect(-20,600,540,30);
-    // ctx.rect(160,490,540,30);
-    ctx.fillStyle = "brown";
+    ctx.fillStyle = "peru";
     ctx.fill();
     ctx.restore();
   } else {
@@ -66,7 +64,7 @@ function foreground() {
     ctx.beginPath();
     ctx.rotate(10*Math.PI/180);
     ctx.rect(160,470,540,30);
-    ctx.fillStyle = "brown";
+    ctx.fillStyle = "peru";
     ctx.fill();
     ctx.restore();
   }
@@ -106,7 +104,7 @@ const fruitchoices = {
 };
 
 
-function Fruit(choice,dx,dy,direction){
+function Fruit(choice,dx,dy){
   this.dx = dx;
   this.dy = dy;
 
@@ -118,18 +116,17 @@ function Fruit(choice,dx,dy,direction){
 
   time--;
   this.update = function(){
-    if (direction === 'left'){
-      dx += 5;
-    } else {
-      dx -= 5;
-    }
+    // console.log(Math.floor(Math.random() * 6) + 1 );
+    dx += 6;
     this.draw();
-
-    // console.log(dx);
+    // collision logic must go in here
   };
   this.update();
 
 }
+
+
+
 
 
 let fruitsArray = [];
@@ -138,9 +135,9 @@ function fruitsGoLeft(){
   for (var i = 0; i < 1; i++) {
     let rand = Math.floor(Math.random() * Math.floor(7));
     let dx = 0;
-    let dy = canvas.height - (Math.floor(Math.random() * 400) + 40);
+    let dy = (Math.floor(Math.random() * 350) + 200);
     // console.log(dy)
-    fruitsArray.push(new Fruit(fruitchoices[rand],dx,dy, "left"));
+    fruitsArray.push(new Fruit(fruitchoices[rand],dx,dy));
     if (fruitsArray.length > 10) {
       fruitsArray.shift();
     }
@@ -161,14 +158,14 @@ function players(){
       if (player1Y > 500){
         jump = false;
       }
-      if (player1Y < 500 && player2Y < 500) {
+      if (player1Y < 500 && player2Y < 510) {
         player1Y += 6;
         player2Y -= 6;
         ctx.drawImage(player2, 0, 0, 1600, 3000, player1X, player1Y, 520, 700);
         ctx.drawImage(player2, 0, 0, 1600, 3000, player2X, player2Y, 520, 700);
     }
   } else if (up){
-      if (player2Y > 470){
+      if (player2Y > 495){
         up = false;
       }
       if (player1Y > 70 && player2Y < 500){
@@ -199,5 +196,5 @@ function animate(){
 
 animate();
 // setInterval(fruitsGoLeft, 1300);
-fruitsGoLeft();
+// fruitsGoLeft();
 // setInterval(fruitsGoRight, 1200);
