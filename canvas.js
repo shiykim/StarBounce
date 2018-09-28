@@ -3,7 +3,7 @@ let ctx = canvas.getContext("2d");
 
 let rightPressed = false;
 let leftPressed = false;
-let down = false;
+let jump = false;
 let up = false;
 // let rightPressedRight = false;
 // let leftPressedRight = false;
@@ -51,56 +51,59 @@ function foreground() {
   ctx.font = "20px Arial";
   ctx.fillText("Score Board", 280, 100);
 
-  ctx.save();
-  ctx.beginPath();
-  // ctx.rotate(10*Math.PI/180);
-  ctx.rotate(-8*Math.PI/180);
-  ctx.rect(-20,600,540,30);
-  // ctx.rect(160,490,540,30);
-  ctx.fillStyle = "brown";
-  ctx.fill();
-  ctx.restore();
+  if (player1Y > 500){
+    ctx.save();
+    ctx.beginPath();
+    // ctx.rotate(10*Math.PI/180);
+    ctx.rotate(-8*Math.PI/180);
+    ctx.rect(-20,600,540,30);
+    // ctx.rect(160,490,540,30);
+    ctx.fillStyle = "brown";
+    ctx.fill();
+    ctx.restore();
+  } else {
+    ctx.save();
+    ctx.beginPath();
+    ctx.rotate(10*Math.PI/180);
+    ctx.rect(160,470,540,30);
+    ctx.fillStyle = "brown";
+    ctx.fill();
+    ctx.restore();
+  }
 }
 
 function keyDownHandler(e) {
     if(e.keyCode === 68) {
       rightPressed = true;
     } else if (e.keyCode === 83) {
-      down = true;
-    } else if (e.keyCode === 87) {
-      up = true;
+      jump = true;
     } else if (e.keyCode === 65) {
       leftPressed = true;
-    } // } else if (e.keyCode === 76) {
-    //   rightPressedRight = true;
-    // } else if (e.keyCode === 75) {
-    //   downRight = true;
-    // } else if (e.keyCode === 74) {
-    //   leftPressedRight = true;
-    // }
+    } else if (e.keyCode === 87) {
+      if (player1Y !== 70){
+        up = true;
+      }
+    }
 }
 
 function keyUpHandler(e) {
     if(e.keyCode === 68) {
         rightPressed = false;
-    } else if(e.keyCode === 83) {
-        down = false;
-    } else if (e.keyCode === 87) {
-        up = false;
     } else if(e.keyCode === 65) {
         leftPressed = false;
-    } // } else if (e.keyCode === 76) {
-    //   rightPressedRight = false;
-    // } else if (e.keyCode === 75) {
-    //   downRight = false;
-    // } else if (e.keyCode === 74) {
-    //   leftPressedRight = false;
-    // }
+    }
 }
 
-let fruitchoices = ['images/cactus.png', 'images/grape.png', 'images/melon.png',
-                    'images/salmonberry.png', 'images/starfruit.png','images/trash.png',
-                    'images/newspaper.png', 'images/glasses.png'];
+const fruitchoices = {
+  0: 'images/cactus.png',
+  1: 'images/grape.png',
+  2: 'images/melon.png',
+  3: 'images/salmonberry.png',
+  4: 'images/starfruit.png',
+  5: 'images/trash.png',
+  6: 'images/newspaper.png',
+  7: 'images/glasses.png'
+};
 
 
 function Fruit(choice,dx,dy,direction){
@@ -114,7 +117,6 @@ function Fruit(choice,dx,dy,direction){
   };
 
   time--;
-
   this.update = function(){
     if (direction === 'left'){
       dx += 5;
@@ -122,18 +124,22 @@ function Fruit(choice,dx,dy,direction){
       dx -= 5;
     }
     this.draw();
+
+    // console.log(dx);
   };
   this.update();
 
 }
 
+
 let fruitsArray = [];
 
 function fruitsGoLeft(){
   for (var i = 0; i < 1; i++) {
-    let rand = Math.floor(Math.random() * Math.floor(fruitchoices.length));
+    let rand = Math.floor(Math.random() * Math.floor(7));
     let dx = 0;
     let dy = canvas.height - (Math.floor(Math.random() * 400) + 40);
+    // console.log(dy)
     fruitsArray.push(new Fruit(fruitchoices[rand],dx,dy, "left"));
     if (fruitsArray.length > 10) {
       fruitsArray.shift();
@@ -151,62 +157,29 @@ function players(){
   } else if (leftPressed && (player1X > 0) && (player2X > 400)) {
      player1X -= 7;
      player2X -= 7;
-  } else if (down && player1Y < 480){
-      while (player1Y < 480){
-        player1Y += 10;
-        player2Y -= 10;
-        // setInterval((ctx.drawImage(player2, 0, 0, 1600, 3000, player1X, player1Y, 520, 700)));
+  } else if (jump){
+      if (player1Y > 500){
+        jump = false;
       }
-  } else if (up && player1Y >= 70){
-    while (player1Y >= 70){
-      player1Y -= 10;
-      player2Y += 10;
-      // setInterval((ctx.drawImage(player2, 0, 0, 1600, 3000, player1X, player1Y, 520, 700)));
+      if (player1Y < 500 && player2Y < 500) {
+        player1Y += 6;
+        player2Y -= 6;
+        ctx.drawImage(player2, 0, 0, 1600, 3000, player1X, player1Y, 520, 700);
+        ctx.drawImage(player2, 0, 0, 1600, 3000, player2X, player2Y, 520, 700);
     }
-  }
+  } else if (up){
+      if (player2Y > 470){
+        up = false;
+      }
+      if (player1Y > 70 && player2Y < 500){
+        player1Y -= 6;
+        player2Y += 6;
+        ctx.drawImage(player2, 0, 0, 1600, 3000, player1X, player1Y, 520, 700);
+        ctx.drawImage(player2, 0, 0, 1600, 3000, player2X, player2Y, 520, 700);
+      }
+    }
+}
 
-
-    // } else if (down && player1Y == 500){
-    //   while (player1Y > 70){
-    //     player1Y -= 10;
-    //     player2Y += 10;
-    //     // setInterval((ctx.drawImage(player2, 0, 0, 1600, 3000, player1X, player1Y, 520, 700)));
-    //   }
-  }
-//
-// function fallingPlayer(){
-//   this.update = function(){
-//     dx += 5;
-//     this.draw();
-//   };
-//   while player1Y <
-//   this.update();
-// }
-
-
-  // two player logic -> clogs up the handle events
-  //  } else if (rightPressedRight && player2X < 560 ) {
-  //     player2X += 7;
-  //     console.log(player2X)
-  //   } else if (leftPressedRight && player2X > 450 ) {
-  //     player2X -= 7;
-  // }
-
-
-// let fruitsArrayRight = [];
-//
-// function fruitsGoRight(){
-//   for (var i = 0; i < 1; i++) {
-//     let rand = Math.floor(Math.random() * Math.floor(fruitchoices.length));
-//     let dx = canvas.width;
-//     let dy = canvas.height - (Math.floor(Math.random() * 400) + 40);
-//     fruitsArrayRight.push(new Fruit(fruitchoices[rand],dx,dy, "right"));
-//     if (fruitsArrayRight.length > 10) {
-//       fruitsArrayRight.shift();
-//     }
-//     console.log(fruitsArrayRight);
-//   }
-// }
 
 function animate(){
   requestAnimationFrame(animate);
@@ -225,5 +198,6 @@ function animate(){
 }
 
 animate();
-// setInterval(fruitsGoLeft, 1200);
+// setInterval(fruitsGoLeft, 1300);
+fruitsGoLeft();
 // setInterval(fruitsGoRight, 1200);
