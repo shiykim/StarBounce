@@ -97,18 +97,18 @@ body {
 }
 
 .info {
+  display: none;
   font-family: 'PT Serif', serif;
   font-size: 30px;
   font-weight: 300;
   color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  position: fixed;
+  left: 50px;
+  top: 20%;
 }
 
 .info > li {
-  padding: 15px;
+  padding-right: 15px;
   list-style: none;
 }
 
