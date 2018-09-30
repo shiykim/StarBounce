@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>StarBounce</title>
+    <link href="https://fonts.googleapis.com/css?family=Cinzel:400,700,900|PT+Serif:400,400i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="lib/stylesheets.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.js"></script>
+  </head>
+  <body>
+   <h1 class='modal-title title'>StarBounce</h1>
+    <div class="modal" onClick='startGame()'>
+      <section class='start-game'>
+      <h1 class='modal-title'> StarBounce</h1>
+        <p>A game of survival.</p>
+        <p>
+          For thousands of years, forest spirits have been living quietly among us feeding off berries for sustenance.
+          <br>
+          However, for the past few years, due to the exponential rise of forest pollution, forest spirits have been wildly unprepared for the winter.
+          <br>
+          Help the small yet resilient race survive this winter by collecting only fruits - not trash.
+        </p>
+        <img src="./assets/images/junimo2.png"/>
+        <img src="./assets/images/junimo1.png"/>
+        <img src="./assets/images/junimo2.png"/>
+        <img src="./assets/images/junimo1.png"/>
+
+        <p> W
+          <br>
+          A - S - D
+        </p>
+        <p>Click anywhere to help save their universe.</p>
+      </section>
+    </div>
+    <div class='lose'>
+      <p>
+        You were not able to get enough berries to sustain the fruit spirits.
+        <br>
+        Look at how disappointed they are...
+        <br>
+        <img src="./assets/images/junimo5.png"/>
+        <button type="button" onclick='playAgain()' class='button'> Try Again?</button>
+      </p>
+    </div>
+
+
+    <div class='win'>
+      <p>
+        Well will you look at that! You just single handedly saved all the forest spirits.
+        <br>
+        Tonight the forest spirits dance in your honor!
+        <img src="./assets/images/junimo4.png"/>
+        <button type="button" onclick='playAgain()' class='button'>Play Again?</button>
+      </p>
+    </div>
+   <!-- insert developer information on the side here -->
+   <canvas id="canvas" width="650" height="640"></canvas>
+   <script src="lib/canvas.js"></script>
+  </body>
+</html>
