@@ -1,33 +1,36 @@
 # StarBounce
 
-## Background
-Inspired by [Stardew Valley](https://stardewvalley.net/) and [Hasee Bounce](https://www.youtube.com/watch?v=7I1yb_0xWYU),
-StarBounce will be a a game that features a villager whose mission is to obtain as many berries as possible to store away
-for the winter. StarBounce will be a one player game with two Stardew Valley characters standing opposite each other at
-the platform at the top.
+[Live](https://claireskim.com/StarBounce/)
+![intro-page](assets/images/intropage.png)
 
-At the bottom of the screen will be a seesaw which will be utilized by the characters to 'bounce' from the seesaw back onto
-their designated spots on platform. In the middle of the screen, between the seesaw and the platform, will be berries that speed across
-the screen horizontally. The objective of the game is to grab as many berries as possible by bouncing the characters from the seesaw back onto
+## Background
+StarBounce is a game of survival. The forest spirits are wildly unequipped for the winter and must forage as many berries as possible lest they starve to death.
+
+At the bottom of the screen is a seesaw utilized by the forest spirits to 'bounce' from the seesaw back onto
+their designated spots on platform. In the middle of the screen, between the seesaw and the platform, are berries that speed across
+the screen horizontally. The objective of the game is to grab as many berries as possible by bouncing the forest spirits from the seesaw back onto
 the platform in under a minute. The rules are as such:
 
-1. If you hit anything that is not a berry - trash, you lose points.
-2. The game ends when you run out of time.
+1. If you hit anything that is not a berry - trash, you lose 10 seconds.
+2. If you successfully hit a berry - you get 10 points.
 
-## Functionality & MVP
+If by the end of the minute, you have not been able to accumulate over 100 points, you have failed your mission.
 
-With StarBounce users will be able to:
+## How to Play
+The W-A-S-D keys are used to navigate the forest spirits back and forth.
+
+* W/S used to toggle the jump
+* A to move left
+* D to move right
+
+![game-page](assets/images/gameplay.png)
+
+## Functionality
+
+With StarBounce users are able to:
 * Toggle sound on/off
-* Start and end the game
 * Keep track of score
-
-In addition, this project will include:
-* An About modal describing the background and rules of the game
-* A production README
-
-## Wireframes
-The app will consist of a single screen with the game, nav links, and the about modal. The game screen will be the central point
-of the app, and will be centered in the middle. Towards the right will be the links to the developer.
+* Save the forest spirits from utter despair
 
 ## Architecture and Technologies
 
@@ -35,9 +38,3 @@ This project will be implemented with the following technologies:
 
 * JavaScript for game logic,
 * Canvas with HTML5,
-
-## Implementation Timeline
-
-* Day 1: Get the game screen, elements, and characters rendered on canvas
-* Day 2: Game logic of 'bouncing'
-* Day 3: Tracking score and polishing up frontend

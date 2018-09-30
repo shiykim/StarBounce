@@ -6,16 +6,10 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
-  /* background: rgb(134,145,195);
-background: linear-gradient(180deg, rgba(134,145,195,1) 4%, rgba(74,95,116,1) 69%); */
-/* background: rgb(69,157,85);
-background: linear-gradient(7deg, rgba(69,157,85,1) 4%, rgba(107,164,146,1) 69%); */
-/* background: rgb(165,212,238);
-background: linear-gradient(7deg, rgba(165,212,238,1) 9%, rgba(139,206,221,1) 69%); */
 }
 
 .game {
-  padding-top: 60px;
+  padding-top: 30px;
 }
 
 #canvas {
