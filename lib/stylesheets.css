@@ -48,7 +48,6 @@ background: linear-gradient(7deg, rgba(165,212,238,1) 9%, rgba(139,206,221,1) 69
   font-family: 'Cinzel', serif;
   font-size: 80px;
   font-weight: 300;
-  padding-bottom: : 0;
   color: white;
 }
 
@@ -101,4 +100,26 @@ background: linear-gradient(7deg, rgba(165,212,238,1) 9%, rgba(139,206,221,1) 69
   border: 1px solid black;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.info {
+  font-family: 'PT Serif', serif;
+  font-size: 30px;
+  font-weight: 300;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.info > li {
+  padding: 15px;
+  list-style: none;
+}
+
+.info > li > a {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
 }
