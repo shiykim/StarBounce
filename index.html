@@ -3,12 +3,12 @@
   <head>
     <title>StarBounce</title>
     <link href="https://fonts.googleapis.com/css?family=Cinzel:400,700,900|PT+Serif:400,400i,700,700i" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="lib/stylesheets.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets.css">
     <link rel="shortcut icon" type="image/png" href="assets/images/junimo2.png"/>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.js"></script>
   </head>
   <body>
-    <div class="modal" onClick='startGame()'>
+    <div class="modal">
       <section class='start-game'>
       <h1 class='modal-title'> StarBounce</h1>
         <p>A game of survival.</p>
@@ -40,7 +40,7 @@
         Look at how disappointed they are...
         <br>
         <img src="./assets/images/junimo5.png"/>
-        <button type="button" onclick='playAgain()' class='button'> Try Again?</button>
+        <button type="button" class='button'> Try Again?</button>
       </p>
     </div>
 
@@ -51,16 +51,16 @@
         <br>
         Tonight the forest spirits will dance in your honor!
         <img src="./assets/images/junimo4.png"/>
-        <button type="button" onclick='playAgain()' class='button'>Play Again?</button>
+        <button type="button" class='button'>Play Again?</button>
       </p>
     </div>
 
    <div class='game'>
-     <canvas id="canvas" width="650" height="640"></canvas>
-     <script src="lib/canvas.js"></script>
+     <canvas id="canvas"></canvas>
      <img src="./assets/images/mute.png" id="play-image" onclick="toggleMusic()">
    </div>
 
+   <script type="application/javascript" src="lib/bundle.js"></script>
    <ul class='info'>
      <li><a href="http://github.com/shiykim">github</a></li>
      <li><a href="http://linkedin.com/in/shiykim">linkedin</a></li>
