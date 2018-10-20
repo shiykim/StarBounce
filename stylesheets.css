@@ -39,6 +39,7 @@ body {
 .start-game {
   color: white;
 }
+
 .modal-title{
   font-family: 'Cinzel', serif;
   font-size: 80px;
@@ -105,7 +106,7 @@ body {
   color: white;
   position: fixed;
   left: 50px;
-  top: 20%;
+  top: 10%;
 }
 
 .info > li {
@@ -118,3 +119,7 @@ body {
   cursor: pointer;
   text-decoration: none;
 }
+
+/* .title {
+  top: 40%
+} */
