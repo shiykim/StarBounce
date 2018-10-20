@@ -10,7 +10,7 @@ body {
 }
 
 .game {
-  padding-top: 30px;
+  padding-top: 50px;
 }
 
 #canvas {
@@ -106,7 +106,7 @@ body {
   color: white;
   position: fixed;
   left: 50px;
-  top: 10%;
+  top: 3%;
 }
 
 .info > li {
@@ -120,6 +120,9 @@ body {
   text-decoration: none;
 }
 
+h2 {
+  font-size: 35px;
+}
 /* .title {
   top: 40%
 } */
