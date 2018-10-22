@@ -34,7 +34,7 @@ With StarBounce users are able to:
 
 ## Architecture and Technologies
 
-This project will be implemented with the following technologies:
+This project was implemented with the following technologies:
 
 * JavaScript for game logic
 * Canvas with HTML5
