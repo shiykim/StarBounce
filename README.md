@@ -3,7 +3,7 @@
 [Live](https://claireskim.com/StarBounce/)
 ![intro-page](assets/images/intropage.png)
 
-## Background
+## Look and Feel
 StarBounce is a game of survival. The forest spirits are wildly unequipped for the winter and must forage as many berries as possible lest they starve to death.
 
 At the bottom of the screen is a seesaw utilized by the forest spirits to 'bounce' from the seesaw back onto
@@ -16,10 +16,10 @@ the platform in under a minute. The rules are as such:
 
 If by the end of the minute, you have not been able to accumulate over 100 points, you have failed your mission.
 
-## How to Play
-The W-A-S-D keys are used to navigate the forest spirits back and forth.
+## Gameplay
+The A-S-D keys are used to navigate the forest spirits back and forth.
 
-* W/S used to toggle the jump
+* S used to toggle the jump
 * A to move left
 * D to move right
 
@@ -30,11 +30,11 @@ The W-A-S-D keys are used to navigate the forest spirits back and forth.
 With StarBounce users are able to:
 * Toggle sound on/off
 * Keep track of score
-* Save the forest spirits from utter despair
+* Save the forest spirits from complete extinction
 
 ## Architecture and Technologies
 
 This project will be implemented with the following technologies:
 
-* JavaScript for game logic,
-* Canvas with HTML5,
+* JavaScript for game logic
+* Canvas with HTML5
